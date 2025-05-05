@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;700&family=Orbitron:wght@400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 94%;
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 94%;
+    --sidebar-primary: 135 100% 50%;
+    --sidebar-primary-foreground: 0 0% 7%;
+    --sidebar-accent: 148 100% 60%;
+    --sidebar-accent-foreground: 0 0% 7%;
+    --sidebar-border: 135 100% 25%;
+    --sidebar-ring: 135 100% 50%;
+
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 94%;
+
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 94%;
+
+    --primary: 135 100% 50%;
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 148 100% 60%;
+    --secondary-foreground: 0 0% 7%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 135 100% 25%;
+    --accent-foreground: 0 0% 94%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 135 100% 25%;
+    --input: 135 100% 25%;
+    --ring: 135 100% 50%;
+
+    --chart-1: 135 100% 50%;
+    --chart-2: 148 100% 60%;
+    --chart-3: 165 100% 70%;
+    --chart-4: 180 100% 45%;
+    --chart-5: 195 100% 45%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  .hex-container {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .circuit-bg {
+    background-image: linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .nav-link {
+    @apply relative;
+  }
+
+  .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    @apply bg-primary;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .streaming-now-badge {
+    @apply bg-accent/90 border border-primary animate-pulse;
+  }
+
+  .glitch-effect:hover {
+    animation: glitch 0.8s ease-in-out;
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0) }
+    20% { transform: translate(-2px, 2px) }
+    40% { transform: translate(-2px, -2px) }
+    60% { transform: translate(2px, 2px) }
+    80% { transform: translate(2px, -2px) }
+    100% { transform: translate(0) }
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0) translateX(-50%); }
+    50% { transform: translateY(-10px) translateX(-50%); }
+    100% { transform: translateY(0) translateX(-50%); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float-image {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+
+  .animate-float-image {
+    animation: float-image 5s ease-in-out infinite;
+  }
+}
